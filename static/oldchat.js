@@ -1,6 +1,6 @@
 /* The type of packet sent, according to the server
  * TODO: TO BE IMPLEMENTED
- * This numeric value will always go before the JSON or other numeric values. 
+ * This numeric value will always go before the JSON or other numeric values.
  * Ex: 6{"foo":"bar"} 8283428394 (notice the 8 for CLIENT_LOAD_MORE_MESSAGES first)
  */
 const Server = {
@@ -131,7 +131,7 @@ function setupConnection() {
     });
 }
 
-// when the message is submmited by the user 
+// when the message is submmited by the user
 form.addEventListener('submit', function(e) {
     window.scrollTo(0, document.body.scrollHeight);
     // clean up old messages that the user doesn't need rendered
@@ -244,7 +244,7 @@ const updateToStart = ms => {
 }
 const loadMoreMessages = _ => {
     message.focus()
-    // this sends a message with the following concatnated to form something like "8202307183290" 
+    // this sends a message with the following concatnated to form something like "8202307183290"
     socket.send(Server.CLIENT_LOAD_MORE_MESSAGES + "" + messageList[0].timestamp)
 }
 const addMessage = m => {
@@ -304,7 +304,7 @@ function format(m) {
     m = m.replaceAll("<atsymbol>", "@​")
     let a = m.split(" ")
     for (let i = 0; i < a.length; i++) {
-        if (a[i].startsWith('https://') || a[i].startsWith('http://')) 
+        if (a[i].startsWith('https://') || a[i].startsWith('http://'))
 			a[i] = '</font><a href="' + a[i] + '" target="_blank">' + a[i] + '</a><font color="#DDD">'
 
         //fixed

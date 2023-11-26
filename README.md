@@ -2,9 +2,9 @@
 this is the full stack code for skychat, codename `collo`
 [view here](https://skyclan.us.to)
 
-## Features 
+## Features
 1. members page
-2. built in chat 
+2. built in chat
 - automatic message loading
 - reply to other people
 - partially works without javascript
@@ -12,7 +12,7 @@ this is the full stack code for skychat, codename `collo`
 4. dynamically generated settings
 5. strong client side password hashing + rehashed on server!
 
-## Todo 
+## Todo
 1. Ping other users support (in chat)
 2. e2e encryption
 3. invite only

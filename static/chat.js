@@ -70,13 +70,13 @@ function messageToHTML(message) {
     messageElement.innerHTML = `
 <button class="timestamp" onclick="attemptReply(${messageElement.id}, '${message["authorName"]}')">
 ${new Date(message["timestamp"] * 1000).toLocaleTimeString()}
-</button> 
+</button>
 <span class="author" style="color: ${toColor(message["authorColor"])}" data="${message["authorId"]}">
 ${message["authorName"]}</span>`
 
 	if (message["repliedTo"]) {
 		messageElement.innerHTML += `<i>replied to ${message["repliedTo"]}</i> `;
-	} 
+	}
 
 	messageElement.innerHTML += `: ${message["content"]}`;
 
@@ -114,7 +114,7 @@ function setupConnection() {
                 // append to messages
                 messages.appendChild(messageToHTML(message));
 
-                // scroll to the latest message 
+                // scroll to the latest message
                 window.scrollTo(0, document.body.scrollHeight);
                 break;
             case Messages.LOAD_MORE_MESSAGES:

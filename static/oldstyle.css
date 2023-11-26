@@ -42,7 +42,7 @@ img {
 
 	img {
 		max-width: 95%;
-	}		
+	}
 }
 input, li, button {
     font-family: Verdana, sans-serif;
@@ -66,7 +66,7 @@ body {
 
 a:link { color: #8aadf4; text-decoration: none; } a:visited { color: #c6a0f6; }
 ul { padding: 0 }
-        
+
 #messages>li {
 	padding: 0.5rem 1rem;
 }

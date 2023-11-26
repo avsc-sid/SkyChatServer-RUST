@@ -17,7 +17,7 @@ function requestToken() {
 	const username = document.getElementById("username");
 	const password = document.getElementById("password");
 	const failed = document.getElementById("failed");
-			
+
 	if (runs > 5) {
 		failed.textContent = "You have tried to login too many times!";
 		return;
@@ -27,7 +27,7 @@ function requestToken() {
 	let salt;
 	let hashedPassword;
 	let token;
-			
+
 	// first obtain the salt from the server to hash with
 	salt = fetch("/auth", { method: "POST", body: `${Request.GET_SALT}${username.value}` })
 		.then((data) => data.json())
@@ -50,7 +50,7 @@ function requestToken() {
 				.then(res => res.json())
 				.then(data => {
 					token = data["token"];
-								
+
 					// if there is no token, quit
 					if (!token) {
 						failed.textContent = `Incorrect username or password (${++runs})`;
@@ -67,7 +67,7 @@ function requestToken() {
 
 // this function registers a new user for you, awaiting manual approval
 function register() {
-	let realname = document.getElementById("realname"); // concatted with description 
+	let realname = document.getElementById("realname"); // concatted with description
 	let prefix = document.getElementById("prefix"); // prefix to form username
 	let color = document.getElementById("color"); // color of username
 	let password = document.getElementById("password"); // password to be hashed
@@ -79,19 +79,19 @@ function register() {
 
 	// send prefix over as username, server will handle it
 	fetch("/auth", { method: "POST", body: `${Request.REGISTER}${JSON.stringify({
-		"username" : prefix.value, 
+		"username" : prefix.value,
 		"password" : hashedPassword,
 		"color" : Number('0x' + color.value.substring(1)),
 		"description" : `I'm ${realname.value}. ${description.value}`,
 		"salt" : salt
 	})}` })
 		.then((res) => {
-		if (res.status == 403) {	
+		if (res.status == 403) {
 			alert("Failed: The server doesn't like you.")
 		} else {
 			alert("Wait a day for approval.");
 			location.href = "/";
-		} 
+		}
 
 	});
-} 
+}
