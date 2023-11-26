@@ -1,2 +1,5 @@
 /target
 .env
+main.sqlite
+main.sqlite-wal
+main.sqlite-shm
