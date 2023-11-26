@@ -13,8 +13,8 @@ use tokio::fs::read;
 use std::sync::Arc;
 
 pub async fn root(config: State<Arc<Config>>) -> Result<Html<String>, ColloError> {
-    let mut s =
-        String::from_utf8(read(format!("{}/partial/index.html.top", &config.static_path)).await?)?;
+    let mut s: String =
+        String::from_utf8_lossy(&read(format!("{}/partial/index.html.top", &config.static_path)).await?).to_string();
 
     // if let Some(token_value)
 
@@ -28,10 +28,10 @@ pub async fn root(config: State<Arc<Config>>) -> Result<Html<String>, ColloError
     ));
 
     s.push_str(
-        String::from_utf8(
-            read(format!("{}/partial/index.html.bottom", &config.static_path)).await?,
-        )?
-        .as_str(),
+        String::from_utf8_lossy(
+            &read(format!("{}/partial/index.html.bottom", &config.static_path)).await?,
+        )
+        .to_string().as_str(),
     );
 
     Ok(Html(s))
