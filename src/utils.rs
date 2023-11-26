@@ -1,13 +1,13 @@
 #[macro_export]
 macro_rules! dotenv_get {
     ($var:expr) => {
-        dotenv::var($var).expect(concat!("Missing ", $var, " environmental variable"))
+        dotenv::var($var).expect(format!("Missing {} environmental variable", $var).as_str())
     };
     ($var:expr, $parse_as:ty) => {
         dotenv::var($var)
-            .expect(concat!("Missing ", $var, " environmental variable"))
+            .expect(format!("Missing {} environmental variable", $var).as_str())
             .parse::<$parse_as>()
-            .expect(concat!($var, " must be valid ", stringify!($parse_as)))
+            .expect(format!("{} must be valid {}", $var, stringify!($parse_as)).as_str())
     };
 }
 

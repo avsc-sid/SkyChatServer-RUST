@@ -42,10 +42,10 @@ async fn main() {
         .fallback_service(static_files_service)
         .with_state(config.clone());
 
-    axum::Server::bind(&config.run)
+    axum::Server::bind(&config.address)
         .serve(app.into_make_service())
         .await
         .unwrap();
 
-    tracing::debug!("listening on {}", &config.run);
+    tracing::debug!("listening on {}", &config.address);
 }

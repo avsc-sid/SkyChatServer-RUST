@@ -12,17 +12,16 @@ create_enums! {
 
     // admins have a negative status
     UserStatus: [
-        0 => Leader, 
-        1 => Deputy, 
-        2 => Healer, 
-        3 => Mediator, 
-        4 => SeniorWarrior, 
-        5 => Warrior, 
-        6 => Apprentice, 
-        7 => Kit 
+        0 => Leader,
+        1 => Deputy,
+        2 => Healer,
+        3 => Mediator,
+        4 => SeniorWarrior,
+        5 => Warrior,
+        6 => Apprentice,
+        7 => Kit
     ]
 }
-
 
 #[derive(Debug, Clone)]
 pub struct Config {
@@ -32,20 +31,27 @@ pub struct Config {
     pub token_len: usize,
     pub chat_channel_capacity: usize,
     pub allow_user_creation: bool,
-    pub run: SocketAddr,
+    pub address: SocketAddr,
     pub git_url: String,
 }
 
 impl Config {
     pub async fn init() -> Self {
+        const ADDRESS_ENV: &str = if cfg!(debug_assertions) {
+            "DEBUG_ADDRESS"
+        } else {
+            "PROD_ADDRESS"
+        };
         Self {
-            db: SqlitePool::connect(dotenv_get!("DATABASE_URL").as_str()).await.unwrap(),
+            db: SqlitePool::connect(dotenv_get!("DATABASE_URL").as_str())
+                .await
+                .unwrap(),
             static_path: dotenv_get!("STATIC_PATH"),
             private_path: dotenv_get!("PRIVATE_PATH"),
             token_len: dotenv_get!("TOKEN_LEN", usize),
             chat_channel_capacity: dotenv_get!("CHAT_CHANNEL_CAPACITY", usize),
             allow_user_creation: dotenv_get!("ALLOW_USER_CREATION", bool),
-            run: dotenv_get!("RUN").parse().expect("Does not contain valid socket address!"),
+            address: dotenv_get!(ADDRESS_ENV, SocketAddr),
             git_url: dotenv_get!("GIT_URL"),
         }
     }
