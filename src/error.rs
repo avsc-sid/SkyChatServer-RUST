@@ -17,7 +17,7 @@ impl IntoResponse for ColloError {
     fn into_response(self) -> axum::response::Response {
         match self {
             Self::FileSystem(_) | Self::StringConversion(_) | Self::Database(_) => {
-                (StatusCode::INTERNAL_SERVER_ERROR, Html(format!("server died.<br>{}", self))).into_response()
+                (StatusCode::INTERNAL_SERVER_ERROR, Html("server died.<br>good luck finding the error")).into_response()
             }
         }
     }

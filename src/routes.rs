@@ -28,10 +28,9 @@ pub async fn root(config: State<Arc<Config>>) -> Result<Html<String>, ColloError
     ));
 
     s.push_str(
-        String::from_utf8_lossy(
+        &String::from_utf8_lossy(
             &read(format!("{}/partial/index.html.bottom", &config.static_path)).await?,
         )
-        .to_string().as_str(),
     );
 
     Ok(Html(s))
