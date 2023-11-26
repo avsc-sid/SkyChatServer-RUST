@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Register</title>
+		<link rel="stylesheet" href="auth.css">
+	</head>
+	<body>
+		<h1>Join the cult!</h1>
+		<input id="realname" placeholder="Name"><br>
+		<p>Enter a word you like, preferably a <b>one or two syllable noun</b> that will be appended with the suffix, which changes over time but starts at kit. (I will explain this later). Example: Spikekit, Leafkit, Darkkit</p>
+		<input id="prefix" placeholder="Prefix"><br><br>
+		<input type="color" id="color" name="color" value="#ffffff" />
+		<label for="color">Color name is displayed in</label><br><br>
+		<input id="password" type="password" placeholder="Passcode"><br><br>
+		<textarea id="description" placeholder="Tell us a little about yourself!" rows="20" cols="60"></textarea><br><br>
+		<button id="auth" onclick="register()" type="reset">Register</button>
+		<script src="bcrypt.min.js"></script>
+		<script src="auth.js"></script>
+		<noscript>JavaScript is required for the client-side bcrypt hash and color picker.</noscript>
+	</body>
+</html>

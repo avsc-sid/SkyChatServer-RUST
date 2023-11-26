@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" href="auth.css">
+	</head>
+	<body>
+		<h1>Login to skyclan.us.to!</h1>
+		<input id="username" placeholder="Username">
+		<input id="password" type="password" placeholder="Passcode">
+		<button id="auth" onclick="requestToken()" type="reset">Login</button>
+		<p id="failed" style="color:red;"></p>
+		<script src="bcrypt.min.js"></script>
+		<script src="auth.js"></script>
+		<noscript>JavaScript is required for the client-side bcrypt hash. Please enable it in order to login.</noscript>
+	</body>
+</html>

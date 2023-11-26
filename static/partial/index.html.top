@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<title>SkyClan</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="description" content="Idots, untie!">
+		<meta name="theme-color" content="#136ff9">
+		<meta property="og:image" content="haus.jpg">
+		<meta property="og:image:type" content="image/jpeg">
+		<meta property="og:image:width" content="378">
+		<meta property="og:image:height" content="504">
+
+		<link rel="icon" type="image/gif" href="logo.gif">
+		<link rel="stylesheet" type="text/css" href="home.css">
+
+	</head>
+	<body>
+		<header>
+			<h1>SkyClan</h1>
+			<p>
+				<a href="members.html">stalk</a> | 
+				<a href="chat.html">chat</a> | 
+				<a href="private/archives.html">archives</a> | 

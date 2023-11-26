@@ -1,0 +1,132 @@
+:root {
+    --bg: #24273a;
+    --button: #494d64;
+    --button-bg: #1f2131;
+    --text-color: #cad3f5;
+    --time-color: #b8c0e0;
+    --font: Verdana, sans-serif;
+    --span-font: Consolas, monospace;
+}
+
+body {
+    background: var(--bg);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-family: var(--font);
+}
+
+#messages {
+    position: static;
+    width: 100%;
+    list-style-type: none;
+    vertical-align: bottom;
+    padding-left: 4px;
+}
+
+#messages li {
+    padding: 0.5rem 1rem;
+    margin: 10px 0;
+}
+
+#messages ul:last-child {
+	padding-bottom: 10rem;
+} 
+
+
+@media screen and (min-width: 800px) {
+    #messages li:hover {
+        background-color: #1d1d30;
+    }
+
+    *::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        border-radius: 4px;
+        background-color: #1d1d30;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: #494d64;
+    }
+
+    body {
+        scrollbar-color: #494d64 #1d1d30;
+    }
+}
+
+#messageButtons {
+    background: var(--button-bg);
+    padding: 0.25rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 3rem;
+    box-sizing: border-box;
+    font-size: 20px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}
+
+#message {
+    background: #494d64;
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    border-radius: 0.25rem;
+    margin: 0.25rem;
+    color: #cad3f5;
+    font-size: 1.2rem;
+}
+
+#message:focus {
+    outline: none;
+    color: #cad3f5;
+}
+
+div>button {
+    background: #494d64;
+    border: none;
+    padding: 0 1rem;
+    margin: 0.25rem;
+    border-radius: 5px;
+    outline: none;
+    color: #cad3f5;
+}
+
+button {
+    margin: 0;
+    border: none;
+    text-align: center;
+    color: inherit;
+    font: inherit;
+    background-color: var(--button);
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 1rem;
+}
+
+.author {
+    text-decoration: underline;
+}
+
+.timestamp {
+    color: var(--time-color);
+    cursor: pointer;
+}
+
+.space {
+    padding: 1rem 0;
+}

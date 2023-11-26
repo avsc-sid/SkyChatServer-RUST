@@ -1,0 +1,43 @@
+			</p>
+		</header>
+		<article>
+			<img style="float: left; border-radius: 4px; margin: 12px" src="logo.jpg" alt="skyclan logo" width=72>
+			<h2 id="what">What?</h2>
+			<p><b>SkyClan</b> is an eccentric nerd cult run by our glorious leader <b>Spikestar</b>.</p>
+
+			<p>11-11-2023</p>
+			<p>
+				First Announcement!<br>
+				The bug that was preventing SkyClan's page from loading (something to do with futexes in tokio) looks like it has been temporarily resolved. The site is going to undergo huge changes, as this is just the initial release.<br>
+				We are allowing our users to request emails! Please do not spam.<br>
+				<b>New</b> archives.html!
+			</p>
+
+			<img style="float: right; margin: 12px" src="fr.png">
+			<p>There are plenty of SkyClan observers and former members, but they would probably be embarrassed to be mentioned here. Out of respect, I decided to not name them, but <b>you know exactly who you are.</b></p>
+
+			<h2 id="lolno">Not Convinced?</h2>
+			<p>Comb through the <a href="no.html"><code>fortune(6)</code> file</a>.
+			<i>Do not hold anyone accountable to the contents of this file, it's not updated often and does not reflect the opinions of SkyClan members as of current.</i>
+			</p>
+
+			<pre>$ strfile skyclan
+"skyclan.dat" created
+There were # strings
+Longest string: # bytes
+Shortest string: # bytes
+$ fortune skyclan
+Rule 226. Getting high together is now legal
+Rule 228. Lets get high together
+</pre>
+
+			<img src="haus.jpg" alt="spikehouse" width=600>
+		</article>
+		<footer>
+			<p><a href="mailto:spikey@rslp.org">spikey@rslp.org</a></p>
+			<hr>
+			<p>No privacy policy; I'm too lazy and unmotivated to find out how to grab your data.</p>
+		</footer>
+	</body>
+<script src="logout.js"></script>
+</html>

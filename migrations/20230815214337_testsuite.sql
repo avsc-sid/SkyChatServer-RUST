@@ -1,0 +1,3 @@
+-- Add migration script here
+INSERT INTO user VALUES (1, "spikestar", 1994625, x'6c52973d3185d3812d1b6979a19edacf9441034fc58e51ab4f5f9193a4eec1288e9f1c1d050ff0283f5c94ded62fcded8cf508490083b8386129441f36809d3f', "$2a$10$Awj55DcQJYQLAlSTlv29RO", -1, "i was born very young");
+INSERT INTO user VALUES (2, "leafshade", 5752327, x'6c52973d3185d3812d1b6979a19edacf9441034fc58e51ab4f5f9193a4eec1288e9f1c1d050ff0283f5c94ded62fcded8cf508490083b8386129441f36809d3f', "$2a$10$Awj55DcQJYQLAlSTlv29RO", 1, "i was born very old");
