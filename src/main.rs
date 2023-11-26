@@ -1,6 +1,8 @@
+mod error;
 mod routes;
 mod structs;
 mod utils;
+
 
 use axum::{
     routing::{get, post},
