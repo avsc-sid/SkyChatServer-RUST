@@ -3,3 +3,4 @@
 main.sqlite
 main.sqlite-wal
 main.sqlite-shm
+Cargo.lock
