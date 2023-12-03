@@ -11,6 +11,9 @@ pub enum ColloError {
 
     #[error("Internal Server Error")]
     StringConversion(#[from] std::string::FromUtf8Error),
+
+    #[error("Bad Request")]
+    JsonError(#[from] serde_json::Error),
 }
 
 impl IntoResponse for ColloError {
@@ -19,6 +22,10 @@ impl IntoResponse for ColloError {
             Self::FileSystem(_) | Self::StringConversion(_) | Self::Database(_) => {
                 (StatusCode::INTERNAL_SERVER_ERROR, Html("server died.<br>good luck finding the error")).into_response()
             }
+
+            Self::JsonError(_) => {
+                StatusCode::BAD_REQUEST.into_response()
+            } 
         }
     }
 }

@@ -28,41 +28,41 @@ function requestToken() {
 	let hashedPassword;
 	let token;
 
-	// first obtain the salt from the server to hash with
-	salt = fetch("/auth", { method: "POST", body: `${Request.GET_SALT}${username.value}` })
-		.then((data) => data.json())
-		.then((data) => {
-			salt = data["salt"];
-			// if there is no salt, quit
-			if (!salt) {
-				failed.textContent = `Unauthorized or invalid credentials (${++runs})`;
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", "/auth");
+	xhr.setRequestHeader('Content-type', 'text/plain');
+
+	xhr.onload = function() {
+		if (xhr.status != 200) {
+			failed.textContent = `Bad username (${++runs})`;
+			return;
+		}
+
+		hashedPassword = bcrypt.hashSync(password.value, xhr.response);
+		
+		// have to re-open before sending again
+		xhr.open("POST", "/auth");
+
+		xhr.onload = function() {
+			console.log("loaded");
+			if (xhr.status != 200) {
+				failed.textContent = `Bad password (${++runs})`;
 				return;
-			}
+			} 
 
-			// hash password with the salt
-			hashedPassword = bcrypt.hashSync(password.value, salt);
+			// set the cookie and return to value of redirectTo
+			redirectWhere = new URLSearchParams(window.location.search).get("redirectTo");
+			console.log(redirectWhere)
+			window.location.href = redirectWhere || "/";
+		}
 
-			// obtain the token
-			fetch("/auth", { method: "POST", body: `${Request.GET_TOKEN}${JSON.stringify({
-				"username" : username.value,
-				"password" : hashedPassword
-			})}` })
-				.then(res => res.json())
-				.then(data => {
-					token = data["token"];
+		xhr.send(Request.GET_TOKEN + JSON.stringify({
+			"username": username.value,
+			"password": hashedPassword
+		}));
+	} 
 
-					// if there is no token, quit
-					if (!token) {
-						failed.textContent = `Incorrect username or password (${++runs})`;
-						return;
-					}
-
-					// set the cookie and return to value of redirectTo
-					redirectWhere = new URLSearchParams(window.location.search).get("redirectTo");
-					console.log(redirectWhere)
-					window.location.href = redirectWhere || "/";
-				});
-		});
+	xhr.send(Request.GET_SALT + username.value);
 }
 
 // this function registers a new user for you, awaiting manual approval

@@ -11,6 +11,7 @@ this is the full stack code for skychat, codename `collo`
 3. login and register (with admin approval system!)
 4. dynamically generated settings
 5. strong client side password hashing + rehashed on server!
+- does not use basic auth compliant to RFC 2617, due to compatibility issues with apple devices
 
 ## Todo
 1. Ping other users support (in chat)

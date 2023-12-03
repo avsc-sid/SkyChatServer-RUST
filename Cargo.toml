@@ -1,37 +1,68 @@
 [package]
 name = "collo"
-version = "0.1.0"
 edition = "2021"
+version = "0.1.0"
 
 [dependencies]
+cookie = "=0.18.0"
 dotenv = "*"
-rand = "*"
-sha2 = "*"
-tokio = { version = "=1.28.2", features = ["rt", "macros"] }
-tower = { version = "=0.4", features = ["util"] }
+tower-cookies = "=0.10.0"
+time = "=0.3.30"
 http = "=1.0.0"
+serde = "*"
 thiserror = "1.0.50"
-tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
-tracing = "0.1.40"
 
-[profile.release]
-strip = true
-lto = true
+[dependencies.axum]
+version = "*"
+features = ["tower-log", "headers", "http2", "matched-path", "tokio", "form", "original-uri", "query", "ws"]
+default-features = false
+
+[dependencies.rand]
+version = "*"
+features = ["std"]
+default-features = false
+
+[dependencies.serde_json]
+version = "*"
+features = ["alloc"]
+
+[dependencies.sha2]
+version = "*"
+features = []
+default-features = false
+
+[dependencies.sqlx]
+version = "*"
+features = ["runtime-tokio-native-tls", "macros", "sqlite", "offline", "migrate", "runtime-actix-native-tls"]
+default-features = false
+
+[dependencies.tokio]
+version = "=1.28.2"
+features = ["rt", "macros"]
+default-features = false
+
+[dependencies.tower]
+version = "=0.4"
+features = ["util"]
+
+[dependencies.tower-http]
+version = "=0.4.4"
+features = ["fs", "trace"]
+
+[dependencies.tracing]
+version = "0.1.40"
+features = ["attributes"]
+default-features = false
+
+[dependencies.tracing-subscriber]
+version = "0.3.18"
+features = ["env-filter"]
 
 [dev-dependencies]
 lazy_static = "*"
 
-[dependencies.axum]
-version = "*"
-default-features = true
-features = ["ws", "headers", "http2"]
+[profile.release]
+lto = true
+strip = true
 
-[dependencies.tower-http]
-version = "=0.4.4"
-default-features = true
-features = [ "fs", "trace" ]
-
-[dependencies.sqlx]
-version = "*"
-default-features = false
-features = ["macros", "offline", "migrate", "runtime-actix-native-tls", "sqlite"]
+[profile.release.package]
