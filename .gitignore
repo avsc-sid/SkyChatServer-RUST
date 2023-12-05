@@ -1,6 +1,6 @@
 /target
 .env
-main.sqlite
-main.sqlite-wal
-main.sqlite-shm
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
 Cargo.lock

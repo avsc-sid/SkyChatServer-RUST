@@ -47,8 +47,7 @@ async fn main() {
         .route("/", get(root))
         .route("/auth", get(auth_page).post(auth_handler))
         .fallback_service(static_files_service)
-        .with_state(config.clone())
-        ;
+        .with_state(config.clone());
 
     tracing::debug!("listening on {}", &config.address);
 
