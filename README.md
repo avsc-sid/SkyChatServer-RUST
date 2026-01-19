@@ -43,6 +43,3 @@ If there are any bugs that block indefinitely, try the following:
 ```sh
 $ cargo run -r --jobs 1
 ```
-
-## Note
-this is very specific for skyclan's purposes and it is highly unlikely you will ever use this. but the source code is available.
