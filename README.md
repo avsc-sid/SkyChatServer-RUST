@@ -1,6 +1,5 @@
 # SkyChat backend
 this is the full stack code for skychat, codename `collo`
-[view here](https://skyclan.us.to)
 
 ## Features
 1. members page
